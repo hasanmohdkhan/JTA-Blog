@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <!-- model package-->
+        <package name="com.jta.in.blog.model"/>
+    </typeAliases>
+    <mappers>
+        <!--add mapper for each table-->
+        <mapper resource="mybatis-mapper-xml/cwsSQLMap.xml"/>
+        <mapper resource="mybatis-mapper-xml/userSQLMap.xml"/>
+        <!--   <mapper resource="mybatis-mapper-xml/Table2SQLMap.xml"/>-->
+    </mappers>
+</configuration>

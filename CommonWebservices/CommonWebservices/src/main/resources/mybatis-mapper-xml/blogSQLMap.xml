@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Blog">
+    <!--Create table if not exists -->
+    <insert id="createBlogTableIfNotExists" >
+        CREATE TABLE IF NOT EXISTS blog (
+        id INT AUTO_INCREMENT  PRIMARY KEY,
+        title VARCHAR(250) NOT NULL,
+        body TEXT NOT NULL,
+        author VARCHAR(250) NOT NULL,
+        createdAt BIGINT NOT NULL,
+        updatedAt BIGINT NULL
+        );
+
+    </insert>
+
+   <!-- Inset entries in table -->
+    <insert id = "insert" parameterType = "Blog">
+        INSERT INTO blog (title, body,author,createdAt,updatedAt)
+        VALUES (#{title}, #{body},#{author}, #{createdAt},#{updatedAt});
+    </insert>
+
+    <!--Select all entries from table -->
+    <select id = "getAll" resultMap = "result">
+        SELECT * FROM blog;
+    </select>
+
+    <select id = "getByAuthor" parameterType = "String" resultMap = "result">
+        SELECT * FROM blog WHERE AUTHOR = #{author};
+    </select>
+
+
+    <select id = "getById" parameterType = "Blog" resultMap = "result">
+        SELECT * FROM blog WHERE AUTHOR = #{author} AND ID = #{id} ;
+    </select>
+
+    <delete id = "deleteByIdAndUserName" parameterType = "Blog" >
+        DELETE FROM blog WHERE AUTHOR = #{author} AND ID = #{id};
+    </delete>
+    <update id="updateTitle" parameterType="Blog">
+        UPDATE blog SET
+        title = #{title},
+        updatedAt = #{updatedAt}
+        WHERE AUTHOR = #{author} AND ID = #{id};
+    </update>
+
+    <update id="updateBody" parameterType="Blog">
+        UPDATE blog SET
+        body = #{body},
+        updatedAt = #{updatedAt}
+        WHERE AUTHOR = #{author} AND ID = #{id};
+    </update>
+
+    <update id="updateBodyAndTitle" parameterType="Blog">
+        UPDATE blog SET
+        body = #{body},
+        title = #{title},
+        updatedAt = #{updatedAt}
+        WHERE AUTHOR = #{author} AND ID = #{id};
+    </update>
+
+
+    <update id="updateByIdAndUserName" parameterType="Blog">
+        UPDATE blog SET
+        title = #{title},
+        body = #{body}
+        WHERE AUTHOR = #{author} AND ID = #{id};
+    </update>
+
+
+    <resultMap id = "result" type = "Blog">
+        <result property = "title" column = "title"/>
+        <result property = "body" column = "body"/>
+        <result property = "author" column = "author"/>
+        <result property = "createdAt" column = "createdAt"/>
+        <result property = "updatedAt" column = "updatedAt"/>
+    </resultMap>
+</mapper>
