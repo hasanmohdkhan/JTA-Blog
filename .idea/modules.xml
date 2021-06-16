@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CommonWebservices/CommonWebservices/CommonWebservices.iml" filepath="$PROJECT_DIR$/CommonWebservices/CommonWebservices/CommonWebservices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CommonWebservices/CommonWebservices.iml" filepath="$PROJECT_DIR$/CommonWebservices/CommonWebservices.iml" />
       <module fileurl="file://$PROJECT_DIR$/EurekaServer/EurekaServer.iml" filepath="$PROJECT_DIR$/EurekaServer/EurekaServer.iml" />
       <module fileurl="file://$PROJECT_DIR$/BlogServices/blog.iml" filepath="$PROJECT_DIR$/BlogServices/blog.iml" />
     </modules>
